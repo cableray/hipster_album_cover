@@ -7,10 +7,16 @@ require 'dm-validations'
 require 'dm-aggregates'
 require 'dm-migrations'
 require 'ostruct'
+require 'flickr-objects'
 
 require 'sinatra' unless defined?(Sinatra)
 
-Dotenv.load
+Dotenv.load *%w[.env.local .env.#{ENV['RACK_ENV']}]
+
+Flickr.configure do |config|
+  config.api_key       = ENV['FLICKR_API_KEY']
+  config.shared_secret = ENV['FLICKR_SECRET']
+end
 
 configure do
   SiteConfig = OpenStruct.new(

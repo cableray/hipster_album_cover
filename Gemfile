@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'sinatra'
 gem 'json', '>= 1.8.3'
-gem 'dotenv'
+gem 'dotenv', '>=2.1.0'
 gem 'rake'
 gem 'data_mapper'
 gem 'dm-core'
