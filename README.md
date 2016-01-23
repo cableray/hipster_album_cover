@@ -1,21 +1,22 @@
-# Sinatra Application Template
+# Hipster Album Cover generator
 
-A base Sinatra application template. Just fork and build. Yay!
-Includes Bundler, DataMapper, and RSpec, all ready to go.
+Uses several apis (currently wikipedia, flickr, and forismatic) to generate a 
+hypothetical album cover for a hipster band
 
 ## Configuration
 
 Dependencies and all configuration is done in <tt>environment.rb</tt>. Your
-database is also set up here. DataMapper will use sqlite3 by default. Tests
+database (currently not used) is also set up here. DataMapper will use sqlite3 by default. Tests
 use the sqlite3-memory adapter (no configuration needed).
 
 Add your controller actions in <tt>application.rb</tt>. Views for these actions
 are placed in the <tt>views</tt> directory. Static files, including a stock
 stylesheet, go in the <tt>public</tt> directory. Models go in the <tt>lib</tt>
-directory and are auto-loaded.
+directory and are auto-loaded (but that should change later).
 
 Environment variables that you want to expose to your application can be added
-in <tt>.env</tt>
+in <tt>.env</tt> publicly, and <tt>.env.local</tt> for local secrets. You need a 
+flickr api key from [here](http://www.flickr.com/services/apps/create/apply) to get images to work
 
 ## Testing
 
@@ -32,13 +33,21 @@ a sample model, which can be removed). To run the specs:
 
 ## Extras
 
-We've included a handy <tt>console</tt> script that fires up irb with your
+We've included a handy <tt>console</tt> script that fires up pry with your
 environment loaded. To load it, use the Rake task:
 
     bundle exec rake console
 
-## Thanks
+## Todo
 
-This project includes contributions from [several awesome developers](https://github.com/zapnap/sinatra-template/graphs/contributors).
-
-(c) 2015 Nick Plante. This code is distributed under the MIT license.
+- refactor each of the random fetchers into their own classes
+- extract string formatters and build a formatter 
+  - for the band name the removes (parenthesis) and shortens in some cases
+  - for the album title that is a bit smarter, or adjustable
+- generate a permalink for each album that loads the same image and names
+- improve styling
+- provide links to sources
+- make several different name/title overlay styles and pick at random, 
+or by analyzing the image
+- deploy to heroku
+- hook up to soundcloud to actually play music

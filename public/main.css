@@ -46,3 +46,31 @@ a:hover {
 .logo a:hover {
   text-decoration: none;
 }
+
+.album_cover {
+  box-shadow: 2px 2px 10px #888888;
+  position: relative;
+}
+
+.band_name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 25pt;
+  color: white;
+  padding: .75em;
+}
+
+.album_title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-style: italic;
+  text-align: center;
+  font-size: 30pt;
+  color: white;
+  padding: .75em;
+}

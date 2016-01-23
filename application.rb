@@ -23,13 +23,15 @@ get "/" do
   wiki_host = "https://en.wikipedia.org/w/api.php"
   wiki_client = MediawikiApi::Client.new wiki_host
   random_page = wiki_client.query generator:'random', grnnamespace:0
-  @title = random_page.data["pages"].first[1]['title']
+  @band_name = random_page.data["pages"].first[1]['title']
 
-  @image = Flickr.photos.get_interesting.sample
-  
   quotes_api = ForismaticQuotesApi.new
   quote_response = JSON.parse quotes_api.get('', format: 'json', method: 'getQuote', lang: 'en').body
-  @album_name = quote_response['quoteText'].strip.chomp('.').split(' ').last(5).join(' ')
+  @album_title = quote_response['quoteText'].strip.chomp('.').split(' ').last(5).join(' ')
+
+  @image = Flickr.photos.get_interesting.sample
+
+  @title ="Now playing: #@album_title by #@band_name"
   
   erb :root
 end
