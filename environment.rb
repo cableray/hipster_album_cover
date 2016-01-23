@@ -14,8 +14,8 @@ Dotenv.load
 
 configure do
   SiteConfig = OpenStruct.new(
-                 :title => 'Your Application Name',
-                 :author => 'Your Name',
+                 :title => 'Hipster Album Cover',
+                 :author => 'Cable Ray',
                  :url_base => 'http://localhost:4567/'
                )
 

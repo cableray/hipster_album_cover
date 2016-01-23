@@ -1,6 +1,7 @@
 require "rubygems"
 require "bundler/setup"
 require "sinatra"
+require "mediawiki_api"
 require File.join(File.dirname(__FILE__), "environment")
 
 configure do
@@ -18,6 +19,9 @@ end
 
 # root page
 get "/" do
-  @profiles = Profile.all
+  wiki_host = "https://en.wikipedia.org/w/api.php"
+  wiki_client = MediawikiApi::Client.new wiki_host
+  random_page = wiki_client.query generator:'random', grnnamespace:0
+  @title = random_page.data["pages"].first[1]['title']
   erb :root
 end

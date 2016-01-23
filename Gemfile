@@ -10,9 +10,11 @@ gem 'dm-timestamps'
 gem 'dm-validations'
 gem 'dm-aggregates'
 gem 'dm-migrations'
+gem "mediawiki_api"
 
 group :development do
   gem 'foreman'
+  gem 'pry'
 end
 
 group :test do
