@@ -23,5 +23,7 @@ get "/" do
   wiki_client = MediawikiApi::Client.new wiki_host
   random_page = wiki_client.query generator:'random', grnnamespace:0
   @title = random_page.data["pages"].first[1]['title']
+
+  @image = Flickr.photos.get_interesting.sample
   erb :root
 end

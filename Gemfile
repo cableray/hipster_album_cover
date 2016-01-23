@@ -11,6 +11,7 @@ gem 'dm-validations'
 gem 'dm-aggregates'
 gem 'dm-migrations'
 gem "mediawiki_api"
+gem "flickr-objects"
 
 group :development do
   gem 'foreman'
