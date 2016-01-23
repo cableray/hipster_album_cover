@@ -2,6 +2,7 @@ require "rubygems"
 require "bundler/setup"
 require "sinatra"
 require "mediawiki_api"
+require "json"
 require File.join(File.dirname(__FILE__), "environment")
 
 configure do
@@ -25,5 +26,10 @@ get "/" do
   @title = random_page.data["pages"].first[1]['title']
 
   @image = Flickr.photos.get_interesting.sample
+  
+  quotes_api = ForismaticQuotesApi.new
+  quote_response = JSON.parse quotes_api.get('', format: 'json', method: 'getQuote', lang: 'en').body
+  @album_name = quote_response['quoteText'].strip.chomp('.').split(' ').last(5).join(' ')
+  
   erb :root
 end
