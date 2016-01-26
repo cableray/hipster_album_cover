@@ -12,6 +12,7 @@ gem 'dm-aggregates'
 gem 'dm-migrations'
 gem "mediawiki_api"
 gem "flickr-objects"
+gem 'activesupport'
 
 group :development do
   gem 'foreman'

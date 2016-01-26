@@ -4,6 +4,7 @@ Bundler.setup(:default, :test)
 require 'sinatra'
 require 'rspec'
 require 'rack/test'
+require 'active_support/core_ext/object/json'
 
 # set test environment
 Sinatra::Base.set :environment, :test
