@@ -20,10 +20,7 @@ end
 
 # root page
 get "/" do
-  wiki_host = "https://en.wikipedia.org/w/api.php"
-  wiki_client = MediawikiApi::Client.new wiki_host
-  random_page = wiki_client.query generator:'random', grnnamespace:0
-  @band_name = random_page.data["pages"].first[1]['title']
+  @band_name = BandName.get_random
 
   quotes_api = ForismaticQuotesApi.new
   quote_response = JSON.parse quotes_api.get('', format: 'json', method: 'getQuote', lang: 'en').body
