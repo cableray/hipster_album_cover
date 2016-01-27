@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.2.2'
+
 gem 'sinatra'
 gem 'json', '>= 1.8.3'
 gem 'dotenv', '>=2.1.0'
