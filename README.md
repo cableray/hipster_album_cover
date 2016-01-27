@@ -5,9 +5,7 @@ hypothetical album cover for a hipster band
 
 ## Configuration
 
-Dependencies and all configuration is done in <tt>environment.rb</tt>. Your
-database (currently not used) is also set up here. DataMapper will use sqlite3 by default. Tests
-use the sqlite3-memory adapter (no configuration needed).
+Dependencies and all configuration is done in <tt>environment.rb</tt>.
 
 Add your controller actions in <tt>application.rb</tt>. Views for these actions
 are placed in the <tt>views</tt> directory. Static files, including a stock
@@ -21,8 +19,8 @@ flickr api key from [here](http://www.flickr.com/services/apps/create/apply) to 
 ## Testing
 
 Add your specs in <tt>spec</tt>; just require <tt>spec_helper.rb</tt> to
-pre-configure the test environment. A number of samples are provided (including
-a sample model, which can be removed). To run the specs:
+pre-configure the test environment.
+ To run the specs:
 
     bundle exec rake spec
 
